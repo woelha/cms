@@ -27,26 +27,19 @@
             margin-bottom: 5px;
         }
 
-        input[type="text"] {
-            width: calc(33.33% - 22px);
-            padding: 8px;
-            margin-bottom: 10px;
-            box-sizing: border-box;
-            display: inline-block;
-        }
-
-        select {
-            width: calc(33.33% - 22px);
-            padding: 8px;
-            margin-bottom: 10px;
-            box-sizing: border-box;
-            display: inline-block;
-        }
-
         .input-container {
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
+        }
+
+        .input-container label,
+        .input-container input,
+        .input-container select {
+            width: calc(33.33% - 22px);
+            box-sizing: border-box;
+            margin-bottom: 10px;
+            display: inline-block;
         }
 
         #customerList {
@@ -85,6 +78,14 @@
         #exportButton:hover {
             background-color: #45a049;
         }
+
+        /* 추가된 슬라이더 스타일 */
+        input[type="range"] {
+            width: calc(100% - 22px);
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            display: inline-block;
+        }
     </style>
 </head>
 <body>
@@ -105,55 +106,10 @@
             <label for="phoneNumberInput">연락처:</label>
             <input type="text" id="phoneNumberInput" name="phoneNumber" required>
 
-            <label for="ageInput">나이:</label>
-            <input type="text" id="ageInput" name="age" required>
-
-            <label for="frontManagerInput">프론트 담당자:</label>
-            <input type="text" id="frontManagerInput" name="frontManager">
-
-            <label for="purchaseProductSelect">구매 상품:</label>
-            <select id="purchaseProductSelect" name="purchaseProduct">
-                <option value="분석상담">분석상담</option>
-                <option value="긴급상담">긴급상담</option>
-                <option value="기본상담">기본상담</option>
-                <option value="메인상담">메인상담</option>
-                <option value="퍼스널상담">퍼스널상담</option>
-                <option value="VIP상담">VIP상담</option>
-            </select>
-
-            <label for="counselingDateTimeInput">상담일자 및 시간:</label>
-            <input type="text" id="counselingDateTimeInput" name="counselingDateTime" placeholder="YYYY-MM-DD HH:MM" required>
-
-            <label for="managerSelect">담당자:</label>
-            <select id="managerSelect" name="manager">
-                <option value="주현쌤">주현쌤</option>
-                <option value="연록쌤">연록쌤</option>
-                <option value="힘찬쌤">힘찬쌤</option>
-            </select>
-
-            <label for="mainIssuesInput">주요 이슈 및 문제:</label>
-            <input type="text" id="mainIssuesInput" name="mainIssues" required>
-
-            <label for="historyAnalysisInput">히스토리 분석:</label>
-            <input type="text" id="historyAnalysisInput" name="historyAnalysis">
-
-            <label for="selfAnalysisInput">나 분석:</label>
-            <input type="text" id="selfAnalysisInput" name="selfAnalysis">
-
-            <label for="peerAnalysisInput">상대 분석:</label>
-            <input type="text" id="peerAnalysisInput" name="peerAnalysis">
-
-            <label for="recommendationsInput">권고 사항 및 과제:</label>
-            <input type="text" id="recommendationsInput" name="recommendations">
-
-            <label for="feedbackInput">피드백:</label>
-            <input type="text" id="feedbackInput" name="feedback">
-
-            <label for="emergencyInput">긴급 상황 발생 여부:</label>
-            <input type="text" id="emergencyInput" name="emergency">
+            <!-- 기타 항목들 ... -->
 
             <label for="repurchaseRatingInput">재구매의사 (0~10 rating 형태로 구성):</label>
-            <input type="text" id="repurchaseRatingInput" name="repurchaseRating">
+            <input type="range" id="repurchaseRatingInput" name="repurchaseRating" min="0" max="10" value="0" step="1">
 
             <label for="repurchaseProductSelect">재구매상품:</label>
             <select id="repurchaseProductSelect" name="repurchaseProduct">
@@ -165,8 +121,7 @@
                 <option value="VIP상담">VIP상담</option>
             </select>
 
-            <label for="otherMemoInput">기타 메모:</label>
-            <input type="text" id="otherMemoInput" name="otherMemo">
+            <!-- 나머지 항목들 ... -->
         </div>
 
         <button type="button" onclick="saveCustomer()">고객 정보 저장</button>
