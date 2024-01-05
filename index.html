@@ -82,12 +82,14 @@
             <option value="여성">여성</option>
         </select>
 
-        <label for="managerSelect">담당자:</label>
-        <select id="managerSelect" name="manager">
-            <option value="주현쌤">주현쌤</option>
-            <option value="연록쌤">연록쌤</option>
-            <option value="힘찬쌤">힘찬쌤</option>
-        </select>
+        <label for="phoneNumberInput">연락처:</label>
+        <input type="text" id="phoneNumberInput" name="phoneNumber" required>
+
+        <label for="ageInput">나이:</label>
+        <input type="text" id="ageInput" name="age" required>
+
+        <label for="counselingDateTimeInput">상담일자 및 시간:</label>
+        <input type="text" id="counselingDateTimeInput" name="counselingDateTime" placeholder="YYYY-MM-DD HH:MM" required>
 
         <label for="counselingTypeSelect">상담 유형:</label>
         <select id="counselingTypeSelect" name="counselingType">
@@ -99,20 +101,27 @@
             <option value="VIP상담">VIP상담</option>
         </select>
 
-        <label for="counselingDateInput">상담일자:</label>
-        <input type="text" id="counselingDateInput" name="counselingDate" placeholder="YYYY-MM-DD HH:MM" required>
+        <label for="managerSelect">담당자:</label>
+        <select id="managerSelect" name="manager">
+            <option value="주현쌤">주현쌤</option>
+            <option value="연록쌤">연록쌤</option>
+            <option value="힘찬쌤">힘찬쌤</option>
+        </select>
 
-        <label for="phoneNumberInput">연락처:</label>
-        <input type="text" id="phoneNumberInput" name="phoneNumber" required>
+        <label for="counselingMethodInput">상담 방식:</label>
+        <input type="text" id="counselingMethodInput" name="counselingMethod" required>
 
-        <label for="ageInput">나이:</label>
-        <input type="text" id="ageInput" name="age" required>
-
-        <label for="addressInput">주소:</label>
-        <input type="text" id="addressInput" name="address" required>
+        <label for="summaryInput">상담 내용 요약:</label>
+        <input type="text" id="summaryInput" name="summary" required>
 
         <label for="mainIssuesInput">주요 이슈 및 문제:</label>
         <input type="text" id="mainIssuesInput" name="mainIssues" required>
+
+        <label for="counselingGoalsInput">상담 목표 및 계획:</label>
+        <input type="text" id="counselingGoalsInput" name="counselingGoals" required>
+
+        <label for="clientStatusInput">클라이언트의 상태 평가:</label>
+        <input type="text" id="clientStatusInput" name="clientStatus" required>
 
         <label for="nextCounselingDateInput">다음 상담 일자:</label>
         <input type="text" id="nextCounselingDateInput" name="nextCounselingDate" placeholder="YYYY-MM-DD HH:MM">
@@ -120,18 +129,14 @@
         <label for="recommendationsInput">권고 사항 및 과제:</label>
         <input type="text" id="recommendationsInput" name="recommendations">
 
-        <label for="feedbackInput">피드백:</label>
-        <input type="text" id="feedbackInput" name="feedback">
-
-        <label for="satisfactionInput">만족도 평가:</label>
-        <select id="satisfactionInput" name="satisfaction">
-            <option value="매우 만족">매우 만족</option>
-            <option value="만족">만족</option>
-            <option value="불만족">불만족</option>
-        </select>
+        <label for="repurchaseInput">재구매 여부:</label>
+        <input type="text" id="repurchaseInput" name="repurchase">
 
         <label for="emergencyInput">긴급 상황 발생 여부:</label>
         <input type="text" id="emergencyInput" name="emergency">
+
+        <label for="otherInfoInput">기타 주요 관련 정보:</label>
+        <input type="text" id="otherInfoInput" name="otherInfo">
 
         <button type="button" onclick="saveCustomer()">고객 정보 저장</button>
     </form>
