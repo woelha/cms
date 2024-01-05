@@ -140,32 +140,30 @@
             <label for="emergencyInput">긴급 상황 발생 여부:</label>
             <input type="text" id="emergencyInput" name="emergency">
 
-<label for="repurchaseRatingInput">재구매의사 (0~10 스코어):</label>
-<input type="range" id="repurchaseRatingInput" name="repurchaseRating" min="0" max="10" step="1" value="0">
-<span id="repurchaseRatingValue">0</span>
+    <label for="repurchaseRatingInput">재구매의사 (0~10 스코어):</label>
+    <input type="range" id="repurchaseRatingInput" name="repurchaseRating" min="0" max="10" step="1" value="0">
+    <span id="repurchaseRatingValue">0</span>
 
-<label for="repurchaseProductSelect">재구매상품:</label>
-<select id="repurchaseProductSelect" name="repurchaseProduct">
-    <option value="분석상담">분석상담</option>
-    <option value="긴급상담">긴급상담</option>
-    <option value="기본상담">기본상담</option>
-    <option value="메인상담">메인상담</option>
-    <option value="퍼스널상담">퍼스널상담</option>
-    <option value="VIP상담">VIP상담</option>
-</select>
+    <label for="repurchaseProductSelect">재구매상품:</label>
+    <select id="repurchaseProductSelect" name="repurchaseProduct">
+        <option value="분석상담">분석상담</option>
+        <option value="긴급상담">긴급상담</option>
+        <option value="기본상담">기본상담</option>
+        <option value="메인상담">메인상담</option>
+        <option value="퍼스널상담">퍼스널상담</option>
+        <option value="VIP상담">VIP상담</option>
+    </select>
 
-<script>
-    // 스크립트에 아래 내용 추가
-    const repurchaseRatingInput = document.getElementById('repurchaseRatingInput');
-    const repurchaseRatingValue = document.getElementById('repurchaseRatingValue');
+    <script>
+        const repurchaseRatingInput = document.getElementById('repurchaseRatingInput');
+        const repurchaseRatingValue = document.getElementById('repurchaseRatingValue');
 
-    repurchaseRatingInput.addEventListener('input', function () {
+        repurchaseRatingInput.addEventListener('input', function () {
+            repurchaseRatingValue.textContent = repurchaseRatingInput.value;
+        });
+
         repurchaseRatingValue.textContent = repurchaseRatingInput.value;
-    });
-
-    // 초기값 설정
-    repurchaseRatingValue.textContent = repurchaseRatingInput.value;
-</script>
+    </script>
 
             <label for="otherMemoInput">기타 메모:</label>
             <input type="text" id="otherMemoInput" name="otherMemo">
