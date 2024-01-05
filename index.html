@@ -4,23 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>고객 관리 시스템</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.5/xlsx.full.min.js"></script>
+
     <style>
         /* CSS 스타일링은 여기에 추가합니다. */
-        #customerList {
-            margin-top: 20px;
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            margin: 20px;
         }
 
-        #list {
+        h1, h2 {
+            color: #333;
+        }
+
+        form, div {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"], #searchInput {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        #customerList {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        ul {
             list-style-type: none;
             padding: 0;
         }
 
-        #list li {
+        li {
             margin-bottom: 20px;
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
         }
 
-        #searchInput {
-            margin-bottom: 10px;
+        #exportButton {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #exportButton:hover {
+            background-color: #45a049;
         }
     </style>
 </head>
@@ -29,53 +73,7 @@
     <h1>고객 관리 시스템</h1>
 
     <form id="customerForm">
-        <h2>기본 정보</h2>
-        <label for="customerName">고객 이름:</label>
-        <input type="text" id="customerName" required>
-
-        <label for="gender">성별:</label>
-        <select id="gender" required>
-            <option value="male">남성</option>
-            <option value="female">여성</option>
-        </select>
-
-        <label for="manager">담당자:</label>
-        <input type="text" id="manager" required>
-
-        <h2>상담 내용</h2>
-        <label for="counselingDateTime">상담일자 및 시간:</label>
-        <input type="datetime-local" id="counselingDateTime" required>
-
-        <label for="counselingType">상담 유형:</label>
-        <input type="text" id="counselingType" required>
-
-        <h2>진단 및 평가</h2>
-        <label for="mainIssues">주요 이슈 및 문제:</label>
-        <textarea id="mainIssues" rows="4" required></textarea>
-
-        <h2>추후 일정 및 조치</h2>
-        <label for="nextCounselingDate">다음 상담 일자:</label>
-        <input type="date" id="nextCounselingDate" required>
-
-        <label for="recommendations">권고 사항 및 과제:</label>
-        <textarea id="recommendations" rows="4" required></textarea>
-
-        <h2>피드백 및 만족도</h2>
-        <label for="feedback">상담 경험에 대한 피드백:</label>
-        <textarea id="feedback" rows="4" required></textarea>
-
-        <label for="satisfaction">만족도 평가:</label>
-        <select id="satisfaction" required>
-            <option value="verySatisfied">매우 만족</option>
-            <option value="satisfied">만족</option>
-            <option value="unsatisfied">불만족</option>
-        </select>
-
-        <h2>기타 사항</h2>
-        <label for="emergency">긴급 상황 발생 여부 및 조치 내용:</label>
-        <textarea id="emergency" rows="4" required></textarea>
-
-        <button type="button" onclick="submitForm()">고객 정보 저장</button>
+        <!-- 기존 양식 내용 추가 -->
     </form>
 
     <div>
@@ -86,107 +84,14 @@
     <div id="customerList">
         <h2>고객 목록</h2>
         <ul id="list"></ul>
+        <button id="exportButton" onclick="exportToExcel()">고객 목록 엑셀로 내보내기</button>
     </div>
 
     <script>
-        var customers = [];
+        // 사용자 정의 함수와 스크립트는 여기에 추가합니다.
 
-        function submitForm() {
-            var customer = {
-                name: document.getElementById('customerName').value,
-                gender: document.getElementById('gender').value,
-                manager: document.getElementById('manager').value,
-                counselingDateTime: document.getElementById('counselingDateTime').value,
-                counselingType: document.getElementById('counselingType').value,
-                mainIssues: document.getElementById('mainIssues').value,
-                nextCounselingDate: document.getElementById('nextCounselingDate').value,
-                recommendations: document.getElementById('recommendations').value,
-                feedback: document.getElementById('feedback').value,
-                satisfaction: document.getElementById('satisfaction').value,
-                emergency: document.getElementById('emergency').value
-            };
-
-            console.log('새로운 고객 정보:', customer);
-
-            customers.unshift(customer);
-
-            updateCustomerList();
-            resetForm();
-
-            alert('고객 정보가 저장되었습니다.');
-        }
-
-        function updateCustomerList() {
-            var list = document.getElementById('list');
-            list.innerHTML = '';
-
-            customers.forEach(function(customer, index) {
-                var listItem = document.createElement('li');
-
-                listItem.textContent = `
-                    고객 이름: ${customer.name}\n
-                    성별: ${customer.gender}\n
-                    담당자: ${customer.manager}\n
-                    상담일자: ${customer.counselingDateTime}\n
-                    상담 유형: ${customer.counselingType}\n
-                    주요 이슈 및 문제: ${customer.mainIssues}\n
-                    다음 상담 일자: ${customer.nextCounselingDate}\n
-                    권고 사항 및 과제: ${customer.recommendations}\n
-                    피드백: ${customer.feedback}\n
-                    만족도 평가: ${customer.satisfaction}\n
-                    긴급 상황: ${customer.emergency}\n
-                `;
-
-                list.appendChild(listItem);
-            });
-        }
-
-        function resetForm() {
-            document.getElementById('customerName').value = '';
-            document.getElementById('gender').value = 'male';
-            document.getElementById('manager').value = '';
-            document.getElementById('counselingDateTime').value = '';
-            document.getElementById('counselingType').value = '';
-            document.getElementById('mainIssues').value = '';
-            document.getElementById('nextCounselingDate').value = '';
-            document.getElementById('recommendations').value = '';
-            document.getElementById('feedback').value = '';
-            document.getElementById('satisfaction').value = 'verySatisfied';
-            document.getElementById('emergency').value = '';
-        }
-
-        function searchCustomers() {
-            var searchInput = document.getElementById('searchInput').value.toLowerCase();
-            var filteredCustomers = customers.filter(function(customer) {
-                return customer.name.toLowerCase().includes(searchInput);
-            });
-
-            displayFilteredCustomers(filteredCustomers);
-        }
-
-        function displayFilteredCustomers(filteredCustomers) {
-            var list = document.getElementById('list');
-            list.innerHTML = '';
-
-            filteredCustomers.forEach(function(customer, index) {
-                var listItem = document.createElement('li');
-
-                listItem.textContent = `
-                    고객 이름: ${customer.name}\n
-                    성별: ${customer.gender}\n
-                    담당자: ${customer.manager}\n
-                    상담일자: ${customer.counselingDateTime}\n
-                    상담 유형: ${customer.counselingType}\n
-                    주요 이슈 및 문제: ${customer.mainIssues}\n
-                    다음 상담 일자: ${customer.nextCounselingDate}\n
-                    권고 사항 및 과제: ${customer.recommendations}\n
-                    피드백: ${customer.feedback}\n
-                    만족도 평가: ${customer.satisfaction}\n
-                    긴급 상황: ${customer.emergency}\n
-                `;
-
-                list.appendChild(listItem);
-            });
+        function exportToExcel() {
+            // 엑셀 내보내기 함수 내용은 여기에 추가합니다.
         }
     </script>
 
