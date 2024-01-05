@@ -115,4 +115,26 @@
                 '상담일자': customer.counselingDateTime,
                 '상담 유형': customer.counselingType,
                 '주요 이슈 및 문제': customer.mainIssues,
-                '
+                '다음 상담 일자': customer.nextCounselingDate,
+                '권고 사항 및 과제': customer.recommendations,
+                '피드백': customer.feedback,
+                '만족도 평가': customer.satisfaction,
+                '긴급 상황': customer.emergency,
+            }));
+
+            const worksheet = XLSX.utils.json_to_sheet(data);
+            const workbook = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(workbook, worksheet, '고객 목록');
+            const excelBuffer = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
+
+            const blob = new Blob([excelBuffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+
+            const link = document.createElement('a');
+            link.href = window.URL.createObjectURL(blob);
+            link.download = '고객목록.xlsx';
+            link.click();
+        }
+    </script>
+
+</body>
+</html>
