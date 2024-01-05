@@ -88,8 +88,8 @@
         <label for="ageInput">나이:</label>
         <input type="text" id="ageInput" name="age" required>
 
-        <label for="counselingDateTimeInput">상담일자 및 시간:</label>
-        <input type="text" id="counselingDateTimeInput" name="counselingDateTime" placeholder="YYYY-MM-DD HH:MM" required>
+        <label for="frontManagerInput">프론트 담당자:</label>
+        <input type="text" id="frontManagerInput" name="frontManager">
 
         <label for="counselingTypeSelect">상담 유형:</label>
         <select id="counselingTypeSelect" name="counselingType">
@@ -101,6 +101,9 @@
             <option value="VIP상담">VIP상담</option>
         </select>
 
+        <label for="counselingDateTimeInput">상담일자 및 시간:</label>
+        <input type="text" id="counselingDateTimeInput" name="counselingDateTime" placeholder="YYYY-MM-DD HH:MM" required>
+
         <label for="managerSelect">담당자:</label>
         <select id="managerSelect" name="manager">
             <option value="주현쌤">주현쌤</option>
@@ -108,35 +111,35 @@
             <option value="힘찬쌤">힘찬쌤</option>
         </select>
 
-        <label for="counselingMethodInput">상담 방식:</label>
-        <input type="text" id="counselingMethodInput" name="counselingMethod" required>
-
-        <label for="summaryInput">상담 내용 요약:</label>
-        <input type="text" id="summaryInput" name="summary" required>
-
         <label for="mainIssuesInput">주요 이슈 및 문제:</label>
         <input type="text" id="mainIssuesInput" name="mainIssues" required>
 
-        <label for="counselingGoalsInput">상담 목표 및 계획:</label>
-        <input type="text" id="counselingGoalsInput" name="counselingGoals" required>
+        <label for="historyAnalysisInput">히스토리 분석:</label>
+        <input type="text" id="historyAnalysisInput" name="historyAnalysis">
 
-        <label for="clientStatusInput">클라이언트의 상태 평가:</label>
-        <input type="text" id="clientStatusInput" name="clientStatus" required>
+        <label for="selfAnalysisInput">나 분석:</label>
+        <input type="text" id="selfAnalysisInput" name="selfAnalysis">
 
-        <label for="nextCounselingDateInput">다음 상담 일자:</label>
-        <input type="text" id="nextCounselingDateInput" name="nextCounselingDate" placeholder="YYYY-MM-DD HH:MM">
+        <label for="peerAnalysisInput">상대 분석:</label>
+        <input type="text" id="peerAnalysisInput" name="peerAnalysis">
 
         <label for="recommendationsInput">권고 사항 및 과제:</label>
         <input type="text" id="recommendationsInput" name="recommendations">
 
-        <label for="repurchaseInput">재구매 여부:</label>
-        <input type="text" id="repurchaseInput" name="repurchase">
+        <label for="feedbackInput">피드백:</label>
+        <input type="text" id="feedbackInput" name="feedback">
 
         <label for="emergencyInput">긴급 상황 발생 여부:</label>
         <input type="text" id="emergencyInput" name="emergency">
 
-        <label for="otherInfoInput">기타 주요 관련 정보:</label>
-        <input type="text" id="otherInfoInput" name="otherInfo">
+        <label for="repurchaseRatingInput">재구매의사 (0~10 rating 형태로 구성):</label>
+        <input type="text" id="repurchaseRatingInput" name="repurchaseRating">
+
+        <label for="repurchaseProductInput">재구매상품:</label>
+        <input type="text" id="repurchaseProductInput" name="repurchaseProduct">
+
+        <label for="otherMemoInput">기타 메모:</label>
+        <input type="text" id="otherMemoInput" name="otherMemo">
 
         <button type="button" onclick="saveCustomer()">고객 정보 저장</button>
     </form>
