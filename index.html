@@ -102,7 +102,36 @@
         <label for="counselingDateInput">상담일자:</label>
         <input type="text" id="counselingDateInput" name="counselingDate" placeholder="YYYY-MM-DD HH:MM" required>
 
-        <!-- 다른 필드들도 추가 -->
+        <label for="phoneNumberInput">연락처:</label>
+        <input type="text" id="phoneNumberInput" name="phoneNumber" required>
+
+        <label for="ageInput">나이:</label>
+        <input type="text" id="ageInput" name="age" required>
+
+        <label for="addressInput">주소:</label>
+        <input type="text" id="addressInput" name="address" required>
+
+        <label for="mainIssuesInput">주요 이슈 및 문제:</label>
+        <input type="text" id="mainIssuesInput" name="mainIssues" required>
+
+        <label for="nextCounselingDateInput">다음 상담 일자:</label>
+        <input type="text" id="nextCounselingDateInput" name="nextCounselingDate" placeholder="YYYY-MM-DD HH:MM">
+
+        <label for="recommendationsInput">권고 사항 및 과제:</label>
+        <input type="text" id="recommendationsInput" name="recommendations">
+
+        <label for="feedbackInput">피드백:</label>
+        <input type="text" id="feedbackInput" name="feedback">
+
+        <label for="satisfactionInput">만족도 평가:</label>
+        <select id="satisfactionInput" name="satisfaction">
+            <option value="매우 만족">매우 만족</option>
+            <option value="만족">만족</option>
+            <option value="불만족">불만족</option>
+        </select>
+
+        <label for="emergencyInput">긴급 상황 발생 여부:</label>
+        <input type="text" id="emergencyInput" name="emergency">
 
         <button type="button" onclick="saveCustomer()">고객 정보 저장</button>
     </form>
