@@ -73,7 +73,15 @@
     <h1>고객 관리 시스템</h1>
 
     <form id="customerForm">
-        <!-- 기존 양식 내용 추가 -->
+        <label for="nameInput">고객 이름:</label>
+        <input type="text" id="nameInput" name="name" required>
+
+        <label for="genderSelect">성별:</label>
+        <select id="genderSelect" name="gender">
+            <option value="남성">남성</option>
+            <option value="여성">여성</option>
+        </select>
+
         <label for="managerSelect">담당자:</label>
         <select id="managerSelect" name="manager">
             <option value="주현쌤">주현쌤</option>
@@ -90,6 +98,13 @@
             <option value="퍼스널상담">퍼스널상담</option>
             <option value="VIP상담">VIP상담</option>
         </select>
+
+        <label for="counselingDateInput">상담일자:</label>
+        <input type="text" id="counselingDateInput" name="counselingDate" placeholder="YYYY-MM-DD HH:MM" required>
+
+        <!-- 다른 필드들도 추가 -->
+
+        <button type="button" onclick="saveCustomer()">고객 정보 저장</button>
     </form>
 
     <div>
@@ -104,35 +119,18 @@
     </div>
 
     <script>
-        // 기존 스크립트 내용 추가
+        // 스크립트 내용 추가
 
-        // 추가된 함수: 고객 목록을 엑셀 파일로 내보내기
+        function saveCustomer() {
+            // 고객 정보 저장 함수 내용 추가
+        }
+
+        function searchCustomers() {
+            // 검색 함수 내용 추가
+        }
+
         function exportToExcel() {
-            const data = customers.map(customer => ({
-                '고객 이름': customer.name,
-                '성별': customer.gender,
-                '담당자': customer.manager,
-                '상담일자': customer.counselingDateTime,
-                '상담 유형': customer.counselingType,
-                '주요 이슈 및 문제': customer.mainIssues,
-                '다음 상담 일자': customer.nextCounselingDate,
-                '권고 사항 및 과제': customer.recommendations,
-                '피드백': customer.feedback,
-                '만족도 평가': customer.satisfaction,
-                '긴급 상황': customer.emergency,
-            }));
-
-            const worksheet = XLSX.utils.json_to_sheet(data);
-            const workbook = XLSX.utils.book_new();
-            XLSX.utils.book_append_sheet(workbook, worksheet, '고객 목록');
-            const excelBuffer = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
-
-            const blob = new Blob([excelBuffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
-
-            const link = document.createElement('a');
-            link.href = window.URL.createObjectURL(blob);
-            link.download = '고객목록.xlsx';
-            link.click();
+            // 엑셀 내보내기 함수 내용 추가
         }
     </script>
 
