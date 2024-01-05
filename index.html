@@ -27,7 +27,7 @@
             margin-bottom: 5px;
         }
 
-        input[type="text"], #searchInput {
+        input[type="text"], select {
             width: 100%;
             padding: 8px;
             margin-bottom: 10px;
@@ -74,6 +74,22 @@
 
     <form id="customerForm">
         <!-- 기존 양식 내용 추가 -->
+        <label for="managerSelect">담당자:</label>
+        <select id="managerSelect" name="manager">
+            <option value="주현쌤">주현쌤</option>
+            <option value="연록쌤">연록쌤</option>
+            <option value="힘찬쌤">힘찬쌤</option>
+        </select>
+
+        <label for="counselingTypeSelect">상담 유형:</label>
+        <select id="counselingTypeSelect" name="counselingType">
+            <option value="분석상담">분석상담</option>
+            <option value="긴급상담">긴급상담</option>
+            <option value="기본상담">기본상담</option>
+            <option value="메인상담">메인상담</option>
+            <option value="퍼스널상담">퍼스널상담</option>
+            <option value="VIP상담">VIP상담</option>
+        </select>
     </form>
 
     <div>
@@ -88,12 +104,15 @@
     </div>
 
     <script>
-        // 사용자 정의 함수와 스크립트는 여기에 추가합니다.
+        // 기존 스크립트 내용 추가
 
+        // 추가된 함수: 고객 목록을 엑셀 파일로 내보내기
         function exportToExcel() {
-            // 엑셀 내보내기 함수 내용은 여기에 추가합니다.
-        }
-    </script>
-
-</body>
-</html>
+            const data = customers.map(customer => ({
+                '고객 이름': customer.name,
+                '성별': customer.gender,
+                '담당자': customer.manager,
+                '상담일자': customer.counselingDateTime,
+                '상담 유형': customer.counselingType,
+                '주요 이슈 및 문제': customer.mainIssues,
+                '
