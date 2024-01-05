@@ -94,6 +94,7 @@
 
     <form id="customerForm">
         <div class="input-container">
+            <!-- 기본 정보 -->
             <label for="nameInput">고객 이름:</label>
             <input type="text" id="nameInput" name="name" required>
 
@@ -106,13 +107,15 @@
             <label for="phoneNumberInput">연락처:</label>
             <input type="text" id="phoneNumberInput" name="phoneNumber" required>
 
-            <!-- 기타 항목들 ... -->
+            <label for="ageInput">나이:</label>
+            <input type="number" id="ageInput" name="age" required>
 
-            <label for="repurchaseRatingInput">재구매의사 (0~10 rating 형태로 구성):</label>
-            <input type="range" id="repurchaseRatingInput" name="repurchaseRating" min="0" max="10" value="0" step="1">
+            <!-- 상담 내용 -->
+            <label for="consultationDateTimeInput">상담일자 및 시간:</label>
+            <input type="datetime-local" id="consultationDateTimeInput" name="consultationDateTime" required>
 
-            <label for="repurchaseProductSelect">재구매상품:</label>
-            <select id="repurchaseProductSelect" name="repurchaseProduct">
+            <label for="purchaseProductSelect">구매상품:</label>
+            <select id="purchaseProductSelect" name="purchaseProduct" required>
                 <option value="분석상담">분석상담</option>
                 <option value="긴급상담">긴급상담</option>
                 <option value="기본상담">기본상담</option>
@@ -121,7 +124,62 @@
                 <option value="VIP상담">VIP상담</option>
             </select>
 
-            <!-- 나머지 항목들 ... -->
+            <label for="consultantSelect">담당자:</label>
+            <select id="consultantSelect" name="consultant">
+                <option value="힘찬쌤">힘찬쌤</option>
+                <option value="연록쌤">연록쌤</option>
+                <option value="주현쌤">주현쌤</option>
+            </select>
+
+            <label for="consultationMethodSelect">상담 방식:</label>
+            <select id="consultationMethodSelect" name="consultationMethod">
+                <option value="대면">대면</option>
+                <option value="전화">전화</option>
+                <option value="온라인">온라인</option>
+            </select>
+
+            <label for="consultationSummaryInput">상담 내용 요약:</label>
+            <textarea id="consultationSummaryInput" name="consultationSummary" rows="4" required></textarea>
+
+            <!-- 진단 및 평가 -->
+            <label for="majorIssuesInput">주요 이슈 및 문제:</label>
+            <textarea id="majorIssuesInput" name="majorIssues" rows="4" required></textarea>
+
+            <label for="consultationGoalsInput">상담 목표 및 계획:</label>
+            <textarea id="consultationGoalsInput" name="consultationGoals" rows="4" required></textarea>
+
+            <label for="clientStatusInput">클라이언트의 상태 평가:</label>
+            <textarea id="clientStatusInput" name="clientStatus" rows="4" required></textarea>
+
+            <!-- 추후 일정 및 조치 -->
+            <label for="recommendationsInput">권고 사항 및 과제:</label>
+            <textarea id="recommendationsInput" name="recommendations" rows="4" required></textarea>
+
+            <label for="repurchaseIntentInput">재구매의사:</label>
+            <input type="range" id="repurchaseIntentInput" name="repurchaseIntent" min="0" max="10" value="0" step="1">
+
+            <label for="repurchaseDecisionSelect">재구매 여부:</label>
+            <select id="repurchaseDecisionSelect" name="repurchaseDecision">
+                <option value="예">예</option>
+                <option value="아니오">아니오</option>
+            </select>
+
+            <label for="repurchaseProductSelect">재구매 상품:</label>
+            <select id="repurchaseProductSelect" name="repurchaseProduct" required>
+                <option value="분석상담">분석상담</option>
+                <option value="긴급상담">긴급상담</option>
+                <option value="기본상담">기본상담</option>
+                <option value="메인상담">메인상담</option>
+                <option value="퍼스널상담">퍼스널상담</option>
+                <option value="VIP상담">VIP상담</option>
+            </select>
+
+            <!-- 기타 사항 -->
+            <label for="emergencySituationInput">긴급 상황 발생 여부 및 조치 내용:</label>
+            <textarea id="emergencySituationInput" name="emergencySituation" rows="4"></textarea>
+
+            <label for="otherInformationInput">기타 주요 관련 정보:</label>
+            <textarea id="otherInformationInput" name="otherInformation" rows="4"></textarea>
         </div>
 
         <button type="button" onclick="saveCustomer()">고객 정보 저장</button>
