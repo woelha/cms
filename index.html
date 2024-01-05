@@ -28,7 +28,7 @@
         }
 
         input[type="text"], select {
-            width: calc(100% - 22px);
+            width: calc(33.33% - 22px);
             padding: 8px;
             margin-bottom: 10px;
             box-sizing: border-box;
@@ -51,14 +51,18 @@
         ul {
             list-style-type: none;
             padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
         }
 
         li {
-            margin-bottom: 20px;
+            flex: 0 0 calc(33.33% - 20px);
             background-color: #f9f9f9;
             padding: 15px;
             border-radius: 5px;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
         }
 
         #exportButton {
@@ -82,20 +86,22 @@
     <form id="customerForm">
         <!-- 기존 입력항목들은 그대로 유지 -->
 
-        <label for="repurchaseRatingInput">재구매의사 (0~10 rating 형태로 구성):</label>
-        <input type="text" id="repurchaseRatingInput" name="repurchaseRating">
+        <div class="input-container">
+            <label for="repurchaseRatingInput">재구매의사 (0~10 rating 형태로 구성):</label>
+            <input type="text" id="repurchaseRatingInput" name="repurchaseRating">
 
-        <label for="repurchaseProductSelect">재구매상품:</label>
-        <select id="repurchaseProductSelect" name="repurchaseProduct">
-            <option value="분석상담">분석상담</option>
-            <option value="긴급상담">긴급상담</option>
-            <option value="기본상담">기본상담</option>
-            <option value="메인상담">메인상담</option>
-            <option value="퍼스널상담">퍼스널상담</option>
-            <option value="VIP상담">VIP상담</option>
-        </select>
+            <label for="repurchaseProductSelect">재구매상품:</label>
+            <select id="repurchaseProductSelect" name="repurchaseProduct">
+                <option value="분석상담">분석상담</option>
+                <option value="긴급상담">긴급상담</option>
+                <option value="기본상담">기본상담</option>
+                <option value="메인상담">메인상담</option>
+                <option value="퍼스널상담">퍼스널상담</option>
+                <option value="VIP상담">VIP상담</option>
+            </select>
 
-        <!-- 기존 메모 항목은 그대로 유지 -->
+            <!-- 기존 메모 항목은 그대로 유지 -->
+        </div>
 
         <button type="button" onclick="saveCustomer()">고객 정보 저장</button>
     </form>
