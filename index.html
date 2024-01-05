@@ -140,8 +140,20 @@
             <label for="emergencyInput">긴급 상황 발생 여부:</label>
             <input type="text" id="emergencyInput" name="emergency">
 
-            <label for="repurchaseRatingInput">재구매의사 (0~10 rating 형태로 구성):</label>
-            <input type="text" id="repurchaseRatingInput" name="repurchaseRating">
+<label for="repurchaseRatingInput">재구매의사 (0~10 스코어):</label>
+<input type="range" id="repurchaseRatingInput" name="repurchaseRating" min="0" max="10" step="1">
+<span id="repurchaseRatingValue">0</span>
+
+<script>
+    // 스크립트에 아래 내용 추가
+    const repurchaseRatingInput = document.getElementById('repurchaseRatingInput');
+    const repurchaseRatingValue = document.getElementById('repurchaseRatingValue');
+
+    repurchaseRatingInput.addEventListener('input', function () {
+        repurchaseRatingValue.textContent = repurchaseRatingInput.value;
+    });
+</script>
+
 
             <label for="repurchaseProductSelect">재구매상품:</label>
             <select id="repurchaseProductSelect" name="repurchaseProduct">
