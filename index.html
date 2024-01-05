@@ -143,8 +143,15 @@
             <label for="repurchaseRatingInput">재구매의사 (0~10 rating 형태로 구성):</label>
             <input type="text" id="repurchaseRatingInput" name="repurchaseRating">
 
-            <label for="repurchaseProductInput">재구매상품:</label>
-            <input type="text" id="repurchaseProductInput" name="repurchaseProduct">
+            <label for="repurchaseProductSelect">재구매상품:</label>
+            <select id="repurchaseProductSelect" name="repurchaseProduct">
+                <option value="분석상담">분석상담</option>
+                <option value="긴급상담">긴급상담</option>
+                <option value="기본상담">기본상담</option>
+                <option value="메인상담">메인상담</option>
+                <option value="퍼스널상담">퍼스널상담</option>
+                <option value="VIP상담">VIP상담</option>
+            </select>
 
             <label for="otherMemoInput">기타 메모:</label>
             <input type="text" id="otherMemoInput" name="otherMemo">
