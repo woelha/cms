@@ -141,7 +141,7 @@
             <input type="text" id="emergencyInput" name="emergency">
 
 <label for="repurchaseRatingInput">재구매의사 (0~10 스코어):</label>
-<input type="range" id="repurchaseRatingInput" name="repurchaseRating" min="0" max="10" step="1">
+<input type="range" id="repurchaseRatingInput" name="repurchaseRating" min="0" max="10" step="1" value="0">
 <span id="repurchaseRatingValue">0</span>
 
 <script>
@@ -153,7 +153,6 @@
         repurchaseRatingValue.textContent = repurchaseRatingInput.value;
     });
 </script>
-
 
             <label for="repurchaseProductSelect">재구매상품:</label>
             <select id="repurchaseProductSelect" name="repurchaseProduct">
